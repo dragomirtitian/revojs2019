@@ -1,0 +1,51 @@
+{
+	// Place your code-start workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"2-0-original-query": {
+		"scope": "javascript,typescript",
+		"prefix": "2-0-query",
+		"body": [
+			"const queries = {",
+			"    getProductById: {",
+			"        params: { id: 'number' },",
+			"        sql: `select * from product where id = :id`",
+			"    },",
+			"    getCustomerById: {",
+			"        params: { id: 'number' },",
+			"        sql: `select * from customer where id = :id`",
+			"    }",
+			"};",
+		],
+		"description": "Original query"
+	},
+	"2-1-index-query": {
+		"scope": "javascript,typescript",
+		"prefix": "2-1-index",
+		"body": [
+			"interface IQuery {",
+			"    params?: { [paramName: string]: string };",
+			"    sql: string;",
+			"}",
+			"interface IQueryCollection {",
+			"    [queryName: string]: IQuery",
+			"}",
+		],
+		"description": "Index Query Type"
+	},
+	
+	"2-2-v1": {
+		"scope": "javascript,typescript",
+		"prefix": "2-2-v1",
+		"body": [
+			"function define<T extends IQueryCollection>(o: T) {",
+			"    return o",
+			"}",
+		],
+		"description": "T extends IQueryCollection"
+	}
+}

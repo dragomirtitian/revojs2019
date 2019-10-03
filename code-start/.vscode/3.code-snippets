@@ -1,0 +1,35 @@
+{
+	"3-1-name": {
+		"scope": "javascript,typescript",
+		"prefix": "3-1",
+		"body": [
+			"type JustSignature<T",
+		],
+		"description": "type JustSignature<T"
+	},
+	"3-2-any-fn": {
+		"scope": "javascript,typescript",
+		"prefix": "3-2",
+		"body": [
+			"(...a: any[]) => unknown",
+		],
+		"description": "(...a: any[]) => unknown"
+	},
+	"3-3-any-fn": {
+		"scope": "javascript,typescript",
+		"prefix": "3-3",
+		"body": [
+			"(...a: any[]) => unknown",
+		],
+		"description": "(...a: any[]) => unknown"
+	},
+	
+	"3-4-back-fn": {
+		"scope": "javascript,typescript",
+		"prefix": "3-4",
+		"body": [
+			"(...a: P) => R",
+		],
+		"description": "(...a: P) => R"
+	},
+}

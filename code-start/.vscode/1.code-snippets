@@ -1,0 +1,74 @@
+{
+	"1-1-define": {
+		"scope": "javascript,typescript",
+		"prefix": "1-1-define",
+		"body": [
+			"type Property = ",
+			"    | (()=> any) // simple definition ",
+			"    | [()=> any] // simple array definition ",
+			"    | { type: () => any, required?: boolean } // complex definition ",
+			"    | { type: [() => any], required?: boolean } // complex array definition ",
+			"",
+			"function define<T extends Record<string, Property>>(o: T) {",
+			"    return o",
+			"}",
+		],
+		"description": "define<T extends Record<string, Property>>"
+	},
+	
+	"1-2-property-type": {
+		"scope": "javascript,typescript",
+		"prefix": "1-2-property-type",
+		"body": [
+			"type PropertyType<T extends Property> = ",
+			"    never"
+		],
+		"description": "PropertyType"
+	},
+
+	"1-3-samples": {
+		"scope": "javascript,typescript",
+		"prefix": "1-3-samples",
+		"body": [
+			"",
+			"const name = { type: String };",
+			"const age = Number;",
+			"const aliases = { type: [String] as [StringConstructor] };",
+			"",
+			"type nameProp = PropertyType<typeof name> // expected string",
+			"type ageProp = PropertyType<typeof age> // expected number",
+			"type aliasesProp = PropertyType<typeof aliases> // expected string[]",
+		],
+		"description": "define<T extends Record<string, Property>>"
+	},
+
+
+	"1-4-schema-to-props": {
+		"scope": "javascript,typescript",
+		"prefix": "1-4-schema-to-person",
+		"body": [
+			"type SchemaToProps<T extends Record<string, Property>> = T",
+			"",
+			"type Person = SchemaToProps<typeof personSchema>"
+		],
+		"description": "SchemaToPerson"
+	},
+
+	"1-5-make-optional": {
+		"scope": "javascript,typescript",
+		"prefix": "1-5-make-optional",
+		"body": [
+			"type MakeOptional<T, K extends keyof T> = Partial<Pick<T, K>> & Pick<T, Exclude<keyof T, K>>"
+		],
+		"description": "SchemaToPerson"
+	},
+
+	"1-6-key-of-type": {
+		"scope": "javascript,typescript",
+		"prefix": "1-6-key-of-type",
+		"body": [
+			"type KeyOfType<T, U> = { [P in keyof T]: T[P] extends U ? P : never }[keyof T]"
+		],
+		"description": "SchemaToPerson"
+	},
+}
